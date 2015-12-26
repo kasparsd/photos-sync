@@ -7,7 +7,11 @@ $photos_library = $photos_dir . '/database/Library.apdb';
 $photos_library_local = dirname( __FILE__ ) . '/Library.apdb';
 $links_dir = dirname( __FILE__ ) . '/links';
 
-// Move it here to avoid locking and permission issues
+// Store all symlinks in a sub-directory
+if ( ! is_dir( $links_dir ) )
+	mkdir( $links_dir );
+
+// Move the Photos library here to avoid locking and permission issues
 if ( file_exists( $photos_library_local ) )
 	unlink( $photos_library_local );
 
