@@ -11,7 +11,7 @@ or add it to cron (`crontab -e`):
 
 It reads the OS X Photos database (SQLite) at `~/Pictures/Photos Library.photoslibrary/database/Library.apdb` (a copy of it) and creates symlinks to all the original photos and videos in the `photos-sync/links` folder organized by month and prepended with an `md5` hash of the file path to each filename to avoid collisions.
 
-It can then be sent to any location using rsync:
+It can then be sent to any location using rsync (see `sync.sh` for an example):
 
 	rsync -avL photos-sync/links/ /Volumes/Public/Photos
 
