@@ -9,7 +9,7 @@ The PHP script creates symlinks to all of the OS X Photos originals which can be
 
 or add it to cron (`crontab -e`):
 
-  30 * * * * php /home/USERNAME/photos-sync/symlink-photos.php
+	30 * * * * php /home/USERNAME/photos-sync/symlink-photos.php
 
 It reads the OS X Photos database (SQLite) at `~/Pictures/Photos Library.photoslibrary/database/Library.apdb` (a copy of it) and creates symlinks to all original photos and videos in the `photos-sync/links` folder organized by month and filenames prepended with an `md5` hash of the file path to avoid collisions.
 
@@ -17,16 +17,16 @@ It can then be sent to any location using rsync or any other tool of preference.
 
 	#!/bin/bash
 
-  # Ensure that we're always relative to the current directory
+	# Ensure that we're always relative to the current directory
 	cd "$(dirname "$0")"
 
-  # Symlink photos and rsync to the network share
+	# Symlink photos and rsync to the network share
 	php symlink-photos.php
 
-  # Mount the network share
+	# Mount the network share
 	mount_afp afp://western.local/Public /Volumes/Public
 
-  # Resolve and synchronize symlinks to the network share
-  rsync -avL links/ /Volumes/Public/Photos
+	# Resolve and synchronize symlinks to the network share
+	rsync -avL links/ /Volumes/Public/Photos
 
 where `-L` ensures that rsync resolves the symlinks.
