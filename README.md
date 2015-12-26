@@ -1,5 +1,7 @@
 # Sync and Backup OS X Photos to Any Location
 
+![Screenshot of a synchronized Photos folder](screeenshot.png)
+
 The PHP script creates symlinks to all of the OS X Photos originals which can be _Rsynced_ to any location. I use it to share all my photos with the rest of the family using a shared WD EX2 drive. This allows me to avoid adding everything to the Family shared album on iCloud Photos.
 
     $ git clone https://github.com/kasparsd/photos-sync.git
