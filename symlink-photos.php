@@ -25,6 +25,8 @@ $query = $db->query(
 		( imageDate + 978307200 ) as timestamp
 	FROM
 		RKMaster
+	ORDER BY
+		imageDate ASC
 	'
 );
 
