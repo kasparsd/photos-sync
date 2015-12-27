@@ -29,4 +29,6 @@ where `-L` ensures that rsync resolves the symlinks.
 
 Run it every hour via cron `crontab -e`:
 
-	30 * * * * /path/to/sync.sh
+	30 * * * * pgrep -f sync.sh || /path/to/sync.sh
+
+where `pgrep -f sync.sh` will ensure that no other sync process is in progress.
