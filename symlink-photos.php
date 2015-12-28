@@ -25,6 +25,8 @@ $query = $db->query(
 		( imageDate + 978307200 ) as timestamp
 	FROM
 		RKMaster
+	WHERE
+		isInTrash IS NOT 1
 	ORDER BY
 		imageDate ASC
 	'
