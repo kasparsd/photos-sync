@@ -46,8 +46,12 @@ foreach ( $photos as $photo ) {
 	if ( ! is_dir( $link_folder ) )
 		mkdir( $link_folder );
 
-	if ( ! file_exists( $link ) )
+	if ( ! file_exists( $link ) ) {
 		symlink( $target, $link );
+
+		// Set the link creation time to match the photo
+		touch( $link, $photo['timestamp'] );
+	}
 
 }
 
