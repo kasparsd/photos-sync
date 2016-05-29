@@ -1,6 +1,6 @@
 <?php
 
-date_default_timezone_set( exec( 'date +%Z' ) );
+date_default_timezone_set( 'UTC' );
 
 $photos_dir = $_SERVER['HOME'] . '/Pictures/Photos Library.photoslibrary';
 $photos_library = $photos_dir . '/database/Library.apdb';
