@@ -3,8 +3,17 @@
 date_default_timezone_set( 'UTC' );
 
 $photos_dir = $_SERVER['HOME'] . '/Pictures/Photos Library.photoslibrary';
-$photos_library = $photos_dir . '/database/Library.apdb';
-$photos_library_local = dirname( __FILE__ ) . '/Library.apdb';
+
+// macOS is storing things in photos.db now
+if ( file_exists( $photos_dir . '/database/Library.apdb' ) ) {
+	$photos_library = $photos_dir . '/database/Library.apdb';
+} elseif ( file_exists( $photos_dir . '/database/photos.db' ) ) {
+	$photos_library = $photos_dir . '/database/photos.db';
+} else {
+	die( sprintf( 'Failed to find the Photos database in %s', $photos_dir ) );
+}
+
+$photos_library_local = dirname( __FILE__ ) . '/photos.db';
 $links_dir = dirname( __FILE__ ) . '/links';
 
 // Store all symlinks in a sub-directory
