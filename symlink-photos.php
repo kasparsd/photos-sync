@@ -47,7 +47,7 @@ foreach ( $photos as $photo ) {
 
 	$target = sprintf( '%s/Masters/%s', $photos_dir, $photo['path'] );
 	$link_folder = sprintf( '%s/%s', $links_dir, date( 'Y-m', $photo['timestamp'] ) );
-	$link = sprintf( '%s/%s-%s', $link_folder, md5( $photo['path'] ), basename( $photo['path'] ) );
+	$link = sprintf( '%s/%s-%s', $link_folder, md5_file( $photo['path'] ), basename( $photo['path'] ) );
 
 	if ( ! file_exists( $target ) )
 		continue;
